@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sardar International Group | Premium Textile Solutions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-dark: #070b14;
+            --bg-card: rgba(20, 27, 45, 0.4);
+            --bg-glass: rgba(7, 11, 20, 0.7);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-hover: #60a5fa;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(59, 130, 246, 0.3);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo,
+        .stat-number {
+            font-family: "Outfit", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1280px, 90%);
+            margin: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent-primary);
+            font-size: 28px;
+            -webkit-text-fill-color: initial;
+        }
+
+        .menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .menu a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .menu a:hover {
+            color: var(--text-primary);
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.7) 100%),
+                url("https://images.unsplash.com/photo-1558098329-a11cff621064?q=80&w=2090&auto=format&fit=crop") center/cover no-repeat;
+            z-index: -1;
+        }
+
+        /* Adding a subtle glowing orb in the background */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 6vw, 76px);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 28px;
+            letter-spacing: -1px;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: "Outfit", sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        /* SECTION */
+        section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-family: "Outfit", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-sub {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        /* GRID & CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 48px 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 16px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+        }
+
+        /* STATS */
+        .stats {
+            background: linear-gradient(to right, rgba(20, 27, 45, 0.4), rgba(7, 11, 20, 0.8));
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 100px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 48px;
+            text-align: center;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-text {
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* EXPORT */
+        .export-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tag {
+            padding: 16px 28px;
+            border-radius: 100px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .tag i {
+            color: var(--accent-primary);
+            font-size: 20px;
+        }
+
+        .tag:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* CTA */
+        .cta-wrapper {
+            background: linear-gradient(135deg, rgba(20, 27, 45, 0.8), rgba(7, 11, 20, 0.9));
+            border: 1px solid var(--border-light);
+            border-radius: 32px;
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-primary), transparent);
+        }
+
+        .cta-wrapper h2 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .cta-wrapper p {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+
+        .footer-col p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-secondary);
+            padding-top: 40px;
+            border-top: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                /* simple hidden for mobile, could add hamburger */
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .cta-wrapper {
+                padding: 60px 24px;
+            }
+
+            .cta-wrapper h2 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">
+                <i class="ph-fill ph-circles-three"></i>
+                SARDAR INT.
+            </div>
+
+            <div class="menu">
+                <a href="#">About</a>
+                <a href="#">Capabilities</a>
+                <a href="#">Products</a>
+                <a href="#">Global Reach</a>
+                <a href="#">Contact</a>
+                <a href="#" class="btn btn-primary" style="padding: 10px 24px; font-size: 14px; margin-left: 10px;">Get
+                    a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-up">
+                    Vertically Integrated Textile Manufacturing & <span class="text-gradient">Global Exports</span>
+                </h1>
+
+                <p class="animate-up delay-1">
+                    From precision knitting and dyeing to full-scale garment manufacturing, Sardar International Group
+                    delivers reliable, high-volume textile solutions for global markets.
+                </p>
+
+                <div class="hero-buttons animate-up delay-2">
+                    <a href="#capabilities" class="btn btn-primary">
+                        Explore Capabilities <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        Partner With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Expertise</span>
+                <h2 class="section-title">Complete Textile Ecosystem</h2>
+                <p class="section-sub">
+                    Operating across the entire textile value chain with an integrated infrastructure that ensures
+                    efficiency, quality, and scale.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-yarn"></i>
+                    </div>
+                    <h3>Knitting</h3>
+                    <p>
+                        High-capacity circular and flat knitting facilities producing premium fabrics for apparel,
+                        technical, and industrial applications.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-drop"></i>
+                    </div>
+                    <h3>Dyeing & Finishing</h3>
+                    <p>
+                        State-of-the-art processing operations ensuring vibrant color consistency, durability, and
+                        strict environmental compliance.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-t-shirt"></i>
+                    </div>
+                    <h3>Garment Manufacturing</h3>
+                    <p>
+                        End-to-end OEM and private label production services catering to international brands, retail
+                        giants, and wholesalers.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="ph-fill ph-check-circle"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>
+                        Rigorous testing protocols at every production stage to guarantee that all products meet
+                        international quality standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-text">Export Markets</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-text">Garments Annually</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">Global Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Global Reach</span>
+                <h2 class="section-title">International Market Presence</h2>
+                <p class="section-sub">
+                    We serve leading buyers, importers, and apparel companies across multiple continents with reliable
+                    sourcing and seamless export operations.
+                </p>
+            </div>
+
+            <div class="export-list">
+                <div class="tag"><i class="ph ph-globe-hemisphere-east"></i> Europe</div>
+                <div class="tag"><i class="ph ph-globe-hemisphere-east"></i> United Kingdom</div>
+                <div class="tag"><i class="ph ph-globe-hemisphere-east"></i> Middle East</div>
+                <div class="tag"><i class="ph ph-globe-hemisphere-west"></i> North America</div>
+                <div class="tag"><i class="ph ph-globe-hemisphere-east"></i> Asia</div>
+                <div class="tag"><i class="ph ph-globe-hemisphere-east"></i> Africa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Ready to Source at Scale?</h2>
+                <p>
+                    Connect with our dedicated team to discuss your textile sourcing needs, manufacturing partnerships,
+                    and OEM production requirements.
+                </p>
+                <a href="#" class="btn btn-primary">
+                    Request a Consultation <i class="ph ph-paper-plane-tilt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; justify-content: flex-start;">
+                        <i class="ph-fill ph-circles-three"></i>
+                        SARDAR INT.
+                    </div>
+                    <p>Delivering scalable, high-quality textile solutions for global markets from yarn to finished
+                        garment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                        <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                        <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Our Facilities</a>
+                        <a href="#">Sustainability</a>
+                        <a href="#">Careers</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="#">info@sardarint.com</a>
+                        <a href="#">+1 (555) 123-4567</a>
+                        <a href="#">Global Headquarters</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Sardar International Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
